@@ -1,0 +1,27 @@
+<table>
+  <thead>
+  <th>Bandname</th>
+  <th>Band description</th>
+  <th>Band URL</th>
+  <th>Band created</th>
+  <th>Band updated</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let band of bandList">
+    <td>{{band.bandName}}</td>
+    <td>{{band.bandDescription}}</td>
+    <td>{{band.bandUrl}}</td>
+    <td>{{band.bandCreateDatum | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
+    <td>{{band.bandUpdateDatum | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
+    <td>
+      <app-band-form [bandEdit]="band" [toEditFlag]="toEditFlag"
+                       (addBand)="addBand($event)"></app-band-form>
+    </td>
+    <td>
+      <button (click)="deleteItem(band)">
+        <fa-icon [icon]="faTrashAlt"></fa-icon>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

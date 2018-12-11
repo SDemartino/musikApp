@@ -1,0 +1,25 @@
+<table>
+  <thead>
+  <th>Type number</th>
+  <th>Type description</th>
+  <th>Type created at </th>
+  <th>Typ updated at</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let typ of typList">
+    <td>{{typ.typNummer}}</td>
+    <td>{{typ.typBeschreibung}}</td>
+    <td>{{typ.typCreateDatum | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
+    <td>{{typ.typUpdateDatum| date: 'dd.MM.yyyy HH:mm:ss'}}</td>
+    <td>
+      <app-typ-form [typEdit]="typ" [toEditFlag]="toEditFlag"
+                       (addTyp)="addTyp($event)"></app-typ-form>
+    </td>
+    <td>
+      <button (click)="deleteItem(typ)">
+        <fa-icon [icon]="faTrashAlt"></fa-icon>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

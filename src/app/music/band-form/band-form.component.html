@@ -1,0 +1,18 @@
+<form [@dialog] *ngIf="open" (ngSubmit)='onSubmit()' #bandForm='ngForm'>
+  <label>Bandname</label>
+  <input type='text' [(ngModel)]='band.bandName' name='bandName'/>
+  <label>Foundationdate</label>
+  <input type='date' [(ngModel)]='band.bandFoundDate' name='bandFoundDate'/>
+  <label>Bandpicture</label>
+  <input type='text' [(ngModel)]='band.bandPicture' name='bandPicture'/>
+  <label>Band Description</label>
+  <textarea [(ngModel)]='band.bandDescription' name='bandDescription'></textarea>
+  <label>Band Url</label>
+  <input type='url' [(ngModel)]='band.bandUrl' name='bandUrl'/>
+  <input type='submit' value="{{formButtonText}}"/>
+</form>
+<button (click)="changeFlag($event)" *ngIf="open">Cancel</button>
+<button (click)="changeFlag($event)" *ngIf="!open">
+  <fa-icon *ngIf="formButtonText === 'ADD'" [icon]="faPlus">&nbsp;</fa-icon>
+  <fa-icon *ngIf="formButtonText === 'EDIT'" [icon]="faPencilAlt">&nbsp;</fa-icon>
+</button>

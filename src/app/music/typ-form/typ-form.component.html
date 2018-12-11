@@ -1,0 +1,12 @@
+<form [@dialog] *ngIf="open" (ngSubmit)='onSubmit()' #typForm='ngForm'>
+  <label>Type number</label>
+  <input type='number' [(ngModel)]='typ.typNummer' name='typNummer' min='0'  />
+  <label>Type description</label>
+  <input type='text' [(ngModel)]='typ.typBeschreibung' name='typBeschreibung' />
+  <input type='submit' value="{{formButtonText}}" />
+</form>
+<button (click)="changeFlag($event)" *ngIf="open">Cancel</button>
+<button (click)="changeFlag($event)" *ngIf="!open">
+  <fa-icon *ngIf="formButtonText === 'ADD'" [icon]="faPlus">&nbsp;</fa-icon>
+  <fa-icon *ngIf="formButtonText === 'EDIT'" [icon]="faPencilAlt">&nbsp;</fa-icon>
+</button>

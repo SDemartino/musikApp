@@ -1,0 +1,23 @@
+<table>
+  <thead>
+  <th>Artistname</th>
+  <th>Artist created</th>
+  <th>Artist updated</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let artist of artistList">
+    <td>{{artist.artistName}}</td>
+    <td>{{artist.artistCreateDatum | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
+    <td>{{artist.artistUpdateDatum | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
+    <td>
+    <app-artist-form [artistEdit]="artist" [toEditFlag]="toEditFlag"
+                       (addArtist)="addArtist($event)"></app-artist-form>
+    </td>
+    <td>
+      <button (click)="deleteItem(artist)">
+        <fa-icon [icon]="faTrashAlt"></fa-icon>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
