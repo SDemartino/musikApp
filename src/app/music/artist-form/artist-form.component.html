@@ -4,10 +4,12 @@
   <select [(ngModel)]='artist.artistSkills' name='artistSkills' multiple>
     <option *ngFor="let typ of typList" [value]='typ'>{{typ.typBeschreibung}}</option>
   </select>
-  <input type='submit' value="{{formButtonText}}" />
+  <input class="button button1" type='submit' value="{{formButtonText}}"/>
 </form>
-<button (click)="changeFlag($event)" *ngIf="open">Cancel</button>
-<button (click)="changeFlag($event)" *ngIf="!open">
-  <fa-icon *ngIf="formButtonText === 'ADD'" [icon]="faPlus">&nbsp;</fa-icon>
-  <fa-icon *ngIf="formButtonText === 'EDIT'" [icon]="faPencilAlt">&nbsp;</fa-icon>
+<button class="button button4" (click)="changeFlag($event)" *ngIf="open">Cancel</button>
+<button class="button button2" (click)="changeFlag($event)" *ngIf="!open && formButtonText === 'ADD'">
+  <fa-icon [icon]="faPlus">&nbsp;</fa-icon>
+</button>
+<button class="button button1" (click)="changeFlag($event)" *ngIf="!open && formButtonText === 'EDIT'">
+  <fa-icon  [icon]="faPencilAlt">&nbsp;</fa-icon>
 </button>
